@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services – OPSEC Solidarity Ltd</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0d6efd;
+      padding: 10px 20px;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .navbar img {
+      height: 55px;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    .header {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 28px;
+      font-weight: bold;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: #333;
+    }
+    main {
+      flex: 1;
+      padding: 40px 20px;
+    }
+    .services-section {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .service-box {
+      width: 300px;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0px 0px 10px #ddd;
+      margin: 20px;
+      transition: all 0.3s ease;
+    }
+    .service-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0px 6px 18px #bbb;
+    }
+    .service-box-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    .service-box h3 {
+      margin-bottom: 12px;
+      color: #333;
+      font-size: 1.4rem;
+    }
+    .service-box p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .service-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .deposits-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .deposits-btn:hover {
+      box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+      transform: translateY(-2px);
+    }
+    .transfers-btn {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+    .transfers-btn:hover {
+      box-shadow: 0 6px 20px rgba(245,87,108,0.4);
+      transform: translateY(-2px);
+    }
+    .loans-btn {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    .loans-btn:hover {
+      box-shadow: 0 6px 20px rgba(79,172,254,0.4);
+      transform: translateY(-2px);
+    }
+    footer {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+    @media (max-width: 768px) {
+      .services-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .service-box {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <img src="opsecss logo.JPEG" alt="OPSEC Logo">
+      <strong style="font-size:1.3rem;">OPSECS Ltd</strong>
+    </div>
+    <div class="nav-links" style="display:flex; gap:15px;">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="Login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">Our Services</div>
+
+  <!-- Main Content -->
+  <main>
+    <div class="services-section">
+      <!-- Deposits & Savings -->
+      <div class="service-box">
+        <div class="service-box-icon">💳</div>
+        <h3>Deposits & Savings</h3>
+        <p>Make deposits and open flexible savings accounts with competitive interest rates up to 8% per annum.</p>
+        <a href="deposits.html" class="service-btn deposits-btn">Go to Deposits</a>
+      </div>
+      <!-- Transfers & Remittances -->
+      <div class="service-box">
+        <div class="service-box-icon">↔️</div>
+        <h3>Transfers & Remittances</h3>
+        <p>Send money to other accounts or internationally to 150+ countries with competitive exchange rates.</p>
+        <a href="transfers.html" class="service-btn transfers-btn">Go to Transfers</a>
+      </div>
+      <!-- Loans -->
+      <div class="service-box">
+        <div class="service-box-icon">🏦</div>
+        <h3>Loans</h3>
+        <p>Apply for personal or business loans with quick approval and flexible repayment terms.</p>
+        <a href="loan-request.html" class="service-btn loans-btn">Apply for Loan</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 OPSECS Ltd. All rights reserved.</p>
+  </footer>
+</body>
+</html>

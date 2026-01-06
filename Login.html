@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPSEC Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0d6efd;
+      padding: 10px 20px;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      white-space: nowrap;
+      font-size: 1.05rem;
+    }
+    .navbar div:first-child {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 380px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 5px;
+      color: #000;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 25px;
+    }
+    .form-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .form-box h2 {
+      margin-top: 0;
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    label {
+      font-size: 14px;
+      color: #444;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .extras {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+    .extras a {
+      text-decoration: none;
+      color: #0d6efd;
+    }
+    .btn {
+      width: 100%;
+      background: #0d6efd;
+      border: none;
+      padding: 12px;
+      font-size: 15px;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .signup-text {
+      margin-top: 15px;
+      font-size: 13px;
+      text-align: center;
+    }
+    .signup-text a {
+      color: #0d6efd;
+      text-decoration: none;
+    }
+    footer {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <img src="opsecss logo.JPEG" alt="OPSEC Logo" style="height:55px;">
+      <strong style="font-size:1.5rem;">OPSEC SOLIDARITY LTD</strong>
+    </div>
+    <div class="nav-links" style="display:flex; gap:20px; font-size:1.05rem;">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="Login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <h1>Welcome to OPSEC</h1>
+      <div class="subtitle">Secure banking for your financial future</div>
+      <div class="form-box">
+        <h2>Sign In</h2>
+        <form id="loginForm" method="POST">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="your.email@example.com" required>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <div class="extras">
+          <label><input type="checkbox" name="remember"> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn">Sign In</button>
+        <div class="signup-text">
+          <p>Don't have an account? <a href="signup.html">Create an Account</a></p>
+        </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 OPSECS Ltd. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

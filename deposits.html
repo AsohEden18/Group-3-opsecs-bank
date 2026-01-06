@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deposits & Savings – OPSEC Solidarity Ltd</title>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f5f7fa;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 900px;
+        margin: 30px auto;
+        flex: 1;
+        padding: 0 20px;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #0d6efd;
+        padding: 10px 20px;
+        color: white;
+        font-size: 1.3rem;
+    }
+
+    .navbar img {
+        height: 55px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 15px;
+    }
+
+    .navbar a:hover {
+        color: #cfe2ff;
+    }
+
+    h2 {
+        margin: 5px 0;
+        font-size: 26px;
+        font-weight: 700;
+        color: #1d1d1d;
+        text-align: center;
+    }
+
+    p.subtitle {
+        margin: 0 0 25px;
+        color: #555;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .content-section {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+    }
+
+    .content-section h3 {
+        margin-top: 0;
+        font-size: 20px;
+        color: #0d6efd;
+        border-bottom: 2px solid #0d6efd;
+        padding-bottom: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+        color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: none;
+        border-color: #0d6efd;
+        box-shadow: 0 0 5px rgba(13, 110, 253, 0.3);
+    }
+
+    .button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    button {
+        flex: 1;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-submit {
+        background: #0d6efd;
+        color: white;
+    }
+
+    .btn-submit:hover {
+        background: #0a58ca;
+    }
+
+    .btn-reset {
+        background: #6c757d;
+        color: white;
+    }
+
+    .btn-reset:hover {
+        background: #5a6268;
+    }
+
+    .message {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 6px;
+        display: none;
+    }
+
+    .message.success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        display: block;
+    }
+
+    .message.error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        display: block;
+    }
+
+    .info-box {
+        background: #e7f3ff;
+        padding: 15px;
+        border-left: 4px solid #0d6efd;
+        margin-bottom: 20px;
+        border-radius: 4px;
+    }
+
+    .info-box h4 {
+        margin-top: 0;
+        color: #0d6efd;
+    }
+
+    .two-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .two-columns {
+            grid-template-columns: 1fr;
+        }
+
+        .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar a {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+    }
+
+    .footer {
+        background: #0d6efd;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+    }
+
+    .footer a {
+        color: #cfe2ff;
+        text-decoration: none;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="navbar">
+    <div>
+        <strong>OPSEC Solidarity Ltd</strong>
+    </div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="Login.html">Login</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Deposits & Savings</h2>
+    <p class="subtitle">Grow your wealth with our secure savings and deposit solutions</p>
+
+    <div id="message" class="message"></div>
+
+    <!-- Deposits Section -->
+    <div class="content-section">
+        <h3>💰 Make a Deposit</h3>
+        <div class="info-box">
+            <h4>Quick Deposit Information</h4>
+            <p>Deposit funds into your OPSEC account. Your funds are secure and FDIC insured. Deposits are typically processed within 24 hours.</p>
+        </div>
+        <form id="depositForm">
+            <div class="two-columns">
+                <div class="form-group">
+                    <label for="deposit_full_name">Full Name</label>
+                    <input type="text" id="deposit_full_name" name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="deposit_email">Email Address</label>
+                    <input type="email" id="deposit_email" name="email" required>
+                </div>
+            </div>
+
+            <div class="two-columns">
+                <div class="form-group">
+                    <label for="deposit_phone">Phone Number</label>
+                    <input type="tel" id="deposit_phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="deposit_account">Account Number</label>
+                    <input type="text" id="deposit_account" name="account_number" required>
+                </div>
+            </div>
+
+            <div class="two-columns">
+                <div class="form-group">
+                    <label for="deposit_amount">Deposit Amount (XAF)</label>
+                    <input type="number" id="deposit_amount" name="amount" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="deposit_method">Deposit Method</label>
+                    <select id="deposit_method" name="deposit_method" required>
+                        <option value="">Select method</option>
+                        <option value="bank_transfer">Bank Transfer</option>
+                        <option value="mobile_money">Mobile Money</option>
+                        <option value="cash_deposit">Cash Deposit</option>
+                        <option value="check">Check</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="deposit_reference">Reference/Receipt Number (if applicable)</label>
+                <input type="text" id="deposit_reference" name="reference_number">
+            </div>
+
+            <div class="form-group">
+                <label for="deposit_description">Description</label>
+                <textarea id="deposit_description" name="description" rows="3"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-submit">Submit Deposit</button>
+                <button type="reset" class="btn-reset">Clear</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Savings Plans Section -->
+    <div class="content-section">
+        <h3>🏦 Open a Savings Account</h3>
+        <div class="info-box">
+            <h4>Savings Plan Benefits</h4>
+            <ul>
+                <li>Competitive interest rates (up to 8% APY)</li>
+                <li>No minimum balance requirements</li>
+                <li>Flexible withdrawal terms</li>
+                <li>Free account management</li>
+            </ul>
+        </div>
+        <form id="savingsForm">
+            <div class="two-columns">
+                <div class="form-group">
+                    <label for="savings_full_name">Full Name</label>
+                    <input type="text" id="savings_full_name" name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="savings_email">Email Address</label>
+                    <input type="email" id="savings_email" name="email" required>
+                </div>
+            </div>
+
+            <div class="two-columns">
+                <div class="form-group">
+                    <label for="savings_phone">Phone Number</label>
+                    <input type="tel" id="savings_phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="savings_account_type">Account Type</label>
+                    <select id="savings_account_type" name="account_type" required>
+                        <option value="">Select account type</option>
+                        <option value="savings">Savings Account</option>
+                        <option value="fixed_deposit">Fixed Deposit</option>
+                        <option value="money_market">Money Market Account</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="two-columns">
+                <div class="form-group">
+                    <label for="savings_initial_amount">Initial Deposit Amount (XAF)</label>
+                    <input type="number" id="savings_initial_amount" name="initial_amount" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="savings_term_months">Term Length (months) - for Fixed Deposits</label>
+                    <input type="number" id="savings_term_months" name="term_months" min="1" value="12">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="savings_goal">Savings Goal (optional)</label>
+                <input type="text" id="savings_goal" name="savings_goal" placeholder="e.g., Emergency Fund, Vacation, Home">
+            </div>
+
+            <div class="form-group">
+                <label for="savings_notes">Additional Notes</label>
+                <textarea id="savings_notes" name="notes" rows="3"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-submit">Open Savings Account</button>
+                <button type="reset" class="btn-reset">Clear</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>&copy; 2025 OPSEC Solidarity Ltd. All rights reserved. | <a href="about.html">About Us</a> | <a href="services.html">Services</a></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPSEC - Create Account</title>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f5f7fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 420px;
+        margin: 40px auto;
+        text-align: center;
+    }
+
+    .logo-icon {
+        width: 65px;
+        height: 65px;
+        background: #0d6efd;
+        border-radius: 15px;
+        margin: 0 auto 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    h2 {
+        margin: 5px 0;
+        font-size: 26px;
+        font-weight: 700;
+        color: #1d1d1d;
+    }
+
+    p.subtitle {
+        margin: 0 0 25px;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .form-box {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        text-align: left;
+    }
+
+    .form-box h3 {
+        margin-top: 0;
+        font-size: 18px;
+        margin-bottom: 18px;
+        color: #222;
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+        color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #dcdcdc;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    small {
+        font-size: 12px;
+        color: gray;
+        margin-top: -10px;
+        display: block;
+        margin-bottom: 12px;
+    }
+
+    .terms {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .terms input {
+        margin-right: 8px;
+    }
+
+    .terms a {
+        color: #0d6efd;
+        text-decoration: none;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 13px;
+        background: #0d6efd;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 8px;
+    }
+
+    .signin-text {
+        text-align: center;
+        font-size: 14px;
+        margin-top: 12px;
+    }
+
+    .signin-text a {
+        color: #0d6efd;
+        text-decoration: none;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0d6efd;
+      padding: 10px 20px;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      white-space: nowrap;
+      font-size: 1.3rem;
+    }
+    main {
+      flex: 1;
+      padding: 40px 20px;
+    }
+    body {
+      background: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container {
+      margin: 0 auto;
+    }
+    footer {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+</style>
+</head>
+
+<body>
+    
+<div class="navbar" style="
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#0d6efd;
+    padding:10px 20px;
+    color:white;
+    font-size:1.1rem;
+">
+    <div style="display:flex; align-items:center; gap:10px;">
+        <img src="opsecss logo.JPEG" alt="OPSEC Logo" style="height:55px;">
+        <strong style="font-size:1.5rem;">OPSEC SOLIDARITY LTD</strong>
+    </div>
+
+    <div class="nav-links" style="display:flex; gap:20px; font-size:1.05rem;">
+        <a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">Home</a>
+        <a href="about.html" style="color:white; text-decoration:none; font-weight:bold;">About</a>
+        <a href="services.html" style="color:white; text-decoration:none; font-weight:bold;">Services</a>
+       
+        <a href="Login.html" style="color:white; text-decoration:none; font-weight:bold;">Login</a>
+        <a href="signup.html" style="color:white; text-decoration:none; font-weight:bold;">Sign Up</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="logo-icon">🔒</div>
+
+    <h2>Join OPSEC</h2>
+    <p class="subtitle">Start your secure banking journey today</p>
+
+    <div class="form-box">
+        <h3>Create Account</h3>
+
+        <form id="signupForm">
+        <label>Account Number</label>
+        <input type="text" id="account_number" name="account_number" placeholder="Auto-generated" readonly style="background-color: #f0f0f0; cursor: not-allowed;">
+
+        <label>Full Name</label>
+        <input type="text" name="full_name" placeholder="Jean Dupont" required>
+
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="your.email@example.com" required>
+
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="+237 6XX XX XX XX" required>
+
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Create a strong password" required>
+        <small>Minimum 8 characters</small>
+
+        <label>Confirm Password</label>
+        <input type="password" name="confirm_password" placeholder="Re-enter your password" required>
+
+        <div class="terms">
+          <input type="checkbox" name="agree_terms" required>
+          <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+        </div>
+
+        <button type="submit" class="btn" id="submitBtn">Create Account</button>
+
+        <p class="signin-text">
+          Already have an account? <a href="Login.html">Sign In</a>
+        </p>
+        </form>
+        
+        <div id="successMessage" style="display:none; background:#d4edda; color:#155724; padding:12px; border-radius:5px; margin:15px 0;"></div>
+        <div id="errorMessage" style="display:none; background:#f8d7da; color:#721c24; padding:12px; border-radius:5px; margin:15px 0;"></div>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+<script src="script.js"></script>
+<script>
+// Generate account number on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Generate a unique account number: ACC + 10 random digits
+    const accountNumber = 'ACC' + Math.floor(Math.random() * 10000000000).toString().padStart(10, '0');
+    document.getElementById('account_number').value = accountNumber;
+});
+</script>

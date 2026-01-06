@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – OPSEC Solidarity Ltd</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f5f7fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #0d6efd;
+        padding: 15px 25px;
+        color: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 20px;
+        transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+        color: #cfe2ff;
+    }
+
+    .container-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    h1 {
+        color: #1d1d1d;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .stat-card {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        text-align: center;
+        border-left: 5px solid #0d6efd;
+    }
+
+    .stat-card h3 {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .stat-card .value {
+        color: #0d6efd;
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    .action-buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    .action-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+    }
+
+    .btn-deposit {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .btn-deposit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-transfer {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .btn-transfer:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+    }
+
+    .btn-loan {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .btn-loan:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+    }
+
+    .section-title {
+        color: #1d1d1d;
+        font-weight: 700;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #0d6efd;
+    }
+
+    .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+    .card-header {
+        background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+        color: white;
+        padding: 15px 20px;
+        font-weight: 600;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .info-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .info-item:last-child {
+        border-bottom: none;
+    }
+
+    .info-label {
+        color: #666;
+        font-weight: 600;
+    }
+
+    .info-value {
+        color: #1d1d1d;
+        font-weight: 600;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .status-pending {
+        background: #fff3cd;
+        color: #856404;
+    }
+
+    .status-completed {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    .status-failed {
+        background: #f8d7da;
+        color: #721c24;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+        color: #999;
+    }
+
+    .empty-state i {
+        font-size: 48px;
+        margin-bottom: 15px;
+        opacity: 0.5;
+    }
+
+    .footer {
+        background: #222;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar a {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .dashboard-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .action-buttons {
+            grid-template-columns: 1fr;
+        }
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div>
+        <strong style="font-size: 1.5rem;">📊 Dashboard</strong>
+    </div>
+    <div>
+        <a href="index.html">← Back to Home</a>
+        <a href="deposits.html">💳 Deposits</a>
+        <a href="transfers.html">↔️ Transfers</a>
+        <a href="loan-request.html">🏦 Loans</a>
+    </div>
+</div>
+
+<div class="container-main">
+    <h1>Welcome to Your Dashboard</h1>
+
+    <!-- Stats Overview -->
+    <div class="dashboard-grid">
+        <div class="stat-card">
+            <h3>📊 Total Balance</h3>
+            <div class="value">0.00 XAF</div>
+            <p style="color: #999; font-size: 12px; margin: 10px 0 0 0;">Account balance</p>
+        </div>
+        <div class="stat-card">
+            <h3>💳 Recent Deposits</h3>
+            <div class="value">0</div>
+            <p style="color: #999; font-size: 12px; margin: 10px 0 0 0;">In last 30 days</p>
+        </div>
+        <div class="stat-card">
+            <h3>↔️ Transfers Made</h3>
+            <div class="value">0</div>
+            <p style="color: #999; font-size: 12px; margin: 10px 0 0 0;">This month</p>
+        </div>
+        <div class="stat-card">
+            <h3>🌍 Remittances Sent</h3>
+            <div class="value">0</div>
+            <p style="color: #999; font-size: 12px; margin: 10px 0 0 0;">This month</p>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <a href="deposits.html" class="action-btn btn-deposit">
+            <i class="fas fa-plus-circle"></i>
+            Make Deposit
+        </a>
+        <a href="deposits.html" class="action-btn btn-deposit">
+            <i class="fas fa-piggy-bank"></i>
+            Open Savings
+        </a>
+        <a href="transfers.html" class="action-btn btn-transfer">
+            <i class="fas fa-exchange-alt"></i>
+            Send Transfer
+        </a>
+        <a href="transfers.html" class="action-btn btn-transfer">
+            <i class="fas fa-globe"></i>
+            Send Remittance
+        </a>
+    </div>
+
+    <!-- Recent Transactions -->
+    <h2 class="section-title">📋 Recent Deposits</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="empty-state">
+                <i class="fas fa-inbox"></i>
+                <h4>No deposits yet</h4>
+                <p>Your deposits will appear here</p>
+                <a href="deposits.html" class="action-btn btn-deposit" style="width: fit-content; margin: 20px auto 0;">
+                    <i class="fas fa-plus-circle"></i>
+                    Make Your First Deposit
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Transfers -->
+    <h2 class="section-title">📤 Recent Transfers</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="empty-state">
+                <i class="fas fa-exchange-alt"></i>
+                <h4>No transfers yet</h4>
+                <p>Your transfers will appear here</p>
+                <a href="transfers.html" class="action-btn btn-transfer" style="width: fit-content; margin: 20px auto 0;">
+                    <i class="fas fa-exchange-alt"></i>
+                    Make Your First Transfer
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Remittances -->
+    <h2 class="section-title">🌍 Remittance History</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="empty-state">
+                <i class="fas fa-globe"></i>
+                <h4>No remittances yet</h4>
+                <p>Your remittances will appear here</p>
+                <a href="transfers.html" class="action-btn btn-transfer" style="width: fit-content; margin: 20px auto 0;">
+                    <i class="fas fa-globe"></i>
+                    Send Your First Remittance
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Info Cards -->
+    <div style="margin-top: 40px;">
+        <h2 class="section-title">ℹ️ Quick Information</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <!-- Deposits Info -->
+            <div class="card">
+                <div class="card-header">
+                    💳 About Deposits
+                </div>
+                <div class="card-body">
+                    <p style="margin-bottom: 15px;">Deposit money into your account through:</p>
+                    <ul style="color: #666; margin: 0; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">Bank Transfer</li>
+                        <li style="margin-bottom: 8px;">Mobile Money (MTN, Orange)</li>
+                        <li style="margin-bottom: 8px;">Cash Deposit</li>
+                        <li>Check Deposit</li>
+                    </ul>
+                    <a href="deposits.html" style="display: inline-block; margin-top: 15px; color: #0d6efd; font-weight: 600; text-decoration: none;">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Transfers Info -->
+            <div class="card">
+                <div class="card-header">
+                    ↔️ About Transfers
+                </div>
+                <div class="card-body">
+                    <p style="margin-bottom: 15px;">Send money via:</p>
+                    <ul style="color: #666; margin: 0; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">Instant Account Transfer</li>
+                        <li style="margin-bottom: 8px;">International Remittance</li>
+                        <li style="margin-bottom: 8px;">Mobile Money Transfer</li>
+                        <li>150+ countries supported</li>
+                    </ul>
+                    <a href="transfers.html" style="display: inline-block; margin-top: 15px; color: #0d6efd; font-weight: 600; text-decoration: none;">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Loans Info -->
+            <div class="card">
+                <div class="card-header">
+                    🏦 About Loans
+                </div>
+                <div class="card-body">
+                    <p style="margin-bottom: 15px;">Get a loan with:</p>
+                    <ul style="color: #666; margin: 0; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">Quick Approval</li>
+                        <li style="margin-bottom: 8px;">Flexible Terms</li>
+                        <li style="margin-bottom: 8px;">Competitive Rates</li>
+                        <li>Low Interest Rates</li>
+                    </ul>
+                    <a href="loan-request.html" style="display: inline-block; margin-top: 15px; color: #0d6efd; font-weight: 600; text-decoration: none;">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>&copy; 2025 OPSEC Solidarity Ltd. All rights reserved.</p>
+</div>
+
+<script>
+    // Auto-refresh transactions (optional)
+    // This can be enhanced to fetch actual data from the server
+    
+    // Example: Fetch and display recent deposits
+    async function loadRecentTransactions() {
+        try {
+            // This would connect to a real API in production
+            console.log('Dashboard loaded');
+        } catch (error) {
+            console.error('Error loading transactions:', error);
+        }
+    }
+
+    // Load data when page loads
+    document.addEventListener('DOMContentLoaded', loadRecentTransactions);
+</script>
+
+</body>
+</html>
